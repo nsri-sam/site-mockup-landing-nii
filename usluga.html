@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Услуги НИИ нейронаук — сценарии и стоимость · лендинг</title>
+<link rel="icon" href="img/nii-neuro.png" type="image/png">
+<style>
+@font-face{font-family:Montserrat;src:url("fonts/Montserrat-Regular.ttf") format("truetype");font-weight:400}
+@font-face{font-family:Montserrat;src:url("fonts/Montserrat-SemiBold.ttf") format("truetype");font-weight:600}
+@font-face{font-family:Montserrat;src:url("fonts/Montserrat-Bold.ttf") format("truetype");font-weight:700}
+@font-face{font-family:Open Sans;src:url("fonts/OpenSans-Regular.ttf") format("truetype");font-weight:400}
+
+:root{
+  --blue-btn:#006CB4;--blue-deep:#004E82;--blue-mid:#3091D1;--ft-bg:#006BB3;
+  --text:#222;--muted:#666;--line:#E0E0E0;--band:#F5F5F5;--wrap:900px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Open Sans",Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6;font-size:16px}
+a{color:var(--blue-btn);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+
+.mockbar{
+  position:sticky;top:0;z-index:50;background:#111;color:#fff;
+  font-family:Montserrat,Arial,sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.03em;padding:10px 16px;text-align:center
+}
+.mockbar span{opacity:.7;font-weight:400}
+
+.top{border-bottom:1px solid var(--line);padding:14px 0}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.back{font-family:Montserrat,Arial,sans-serif;font-weight:600;font-size:14px}
+.crumb{font-size:13px;color:var(--muted)}
+.crumb a{color:var(--blue-mid)}
+
+.page-head{padding:40px 0 28px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.page-head .eyebrow{
+  font-family:Montserrat,Arial,sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:10px
+}
+.page-head h1{
+  font-family:Montserrat,Arial,sans-serif;font-size:32px;font-weight:700;
+  line-height:1.2;margin-bottom:12px;letter-spacing:-.01em
+}
+.page-head .lead{font-size:17px;color:var(--muted);max-width:42em}
+
+.toc{
+  display:flex;flex-wrap:wrap;gap:8px 16px;padding:16px 0 8px;
+  font-family:Montserrat,Arial,sans-serif;font-size:13px;font-weight:600
+}
+.toc a{color:var(--blue-mid)}
+
+.block{padding:40px 0;border-bottom:1px solid var(--line);scroll-margin-top:56px}
+.block:last-of-type{border-bottom:0}
+.block .num{
+  font-family:Montserrat,Arial,sans-serif;font-size:14px;font-weight:700;
+  color:var(--blue-btn);letter-spacing:.06em;margin-bottom:8px
+}
+.block h2{font-family:Montserrat,Arial,sans-serif;font-size:24px;font-weight:700;margin-bottom:12px;line-height:1.25}
+.block .pkg-lead{
+  font-size:16px;color:var(--muted);max-width:46em;margin-bottom:22px;line-height:1.55
+}
+
+.scenarios{
+  display:grid;grid-template-columns:1fr;gap:14px
+}
+.scenario{
+  display:grid;grid-template-columns:1fr auto;gap:16px 24px;align-items:start;
+  padding:20px 22px;border:1px solid var(--line);border-radius:10px;background:#fff;
+  transition:border-color .2s,box-shadow .2s
+}
+.scenario:hover{border-color:var(--blue-btn);box-shadow:0 8px 24px rgba(0,108,180,.1)}
+.scenario h3{
+  font-family:Montserrat,Arial,sans-serif;font-size:17px;font-weight:600;
+  line-height:1.35;margin-bottom:8px;color:var(--text)
+}
+.scenario .sc-desc{font-size:14px;color:var(--muted);line-height:1.5;max-width:38em}
+.scenario .price{
+  font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:18px;
+  color:var(--blue-deep);letter-spacing:-.01em;white-space:nowrap;
+  text-align:right;line-height:1.3;padding-top:2px
+}
+.scenario .price small{
+  display:block;font-size:11px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:4px
+}
+
+.note{
+  margin:28px 0 8px;padding:14px 16px;background:var(--band);border-radius:8px;
+  font-size:13px;color:var(--muted);line-height:1.5;max-width:52em
+}
+
+.cta-bar{
+  display:inline-flex;flex-wrap:wrap;gap:20px;align-items:center;
+  padding:28px 0 48px
+}
+.cta-bar strong{
+  font-family:Montserrat,Arial,sans-serif;font-size:18px;font-weight:600;color:var(--text)
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 26px;
+  background:var(--blue-btn);color:#fff!important;border-radius:6px;
+  font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:15px;text-decoration:none!important
+}
+.btn:hover{background:var(--blue-mid)}
+.btn-sec{
+  display:inline-flex;align-items:center;height:48px;padding:0 22px;
+  border:1.5px solid var(--blue-btn);border-radius:6px;color:var(--blue-btn)!important;
+  font-family:Montserrat,Arial,sans-serif;font-weight:600;font-size:14px;text-decoration:none!important;background:#fff
+}
+
+.ft{background:var(--ft-bg);color:#fff;padding:28px 0 32px;font-size:13px}
+.ft a{color:#fff;text-decoration:none}
+.ft a:hover{text-decoration:underline}
+.ft-row{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.ft-brand{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:15px;margin-bottom:8px}
+.ft-meta{opacity:.95;max-width:36em;line-height:1.5}
+.ft-actions{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.age{width:40px;height:40px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:13px}
+
+@media (max-width:700px){
+  .page-head h1{font-size:24px}
+  .block h2{font-size:20px}
+  .scenario{grid-template-columns:1fr;gap:12px}
+  .scenario .price{text-align:left;font-size:17px;padding-top:0;border-top:1px solid var(--line);padding-top:12px;width:100%}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="mockbar">
+  МАКЕТ · услуги на лендинге НИИ нейронаук
+  <span> · без оболочки samsmu.ru</span>
+</div>
+
+<div class="top">
+  <div class="wrap">
+    <a class="back" href="index.html">← Назад к лендингу</a>
+    <div class="crumb"><a href="index.html">НИИ нейронаук</a> / Услуги</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="page-head">
+    <div class="eyebrow">Услуги института</div>
+    <h1>Каталог сценариев научно-исследовательских работ для бизнеса и R&amp;D</h1>
+    <p class="lead">Здесь представлены примеры сценариев. Стоимость услуг приведена для ориентира. Итоговая смета зависит от задач, объёма и методов исследования и формируется после согласования технического задания.</p>
+  </header>
+
+  <nav class="toc" aria-label="Содержание">
+    <a href="#napr-ux">Нейроюзабилити и аудит интерфейсов</a>
+    <a href="#napr-neuromarketing">Нейромаркетинг и сенсорный аудит</a>
+    <a href="#napr-rehab">Валидация методик восстановления и когнитивного тренинга</a>
+  </nav>
+
+  <article class="block" id="napr-ux">
+    <span id="task-01"></span>
+    <h2>Нейроюзабилити и аудит интерфейсов</h2>
+    <p class="pkg-lead">Объективно разбираем, куда смотрит пользователь и где «ломается» сценарий: айтрекинг, поведение, при необходимости ЭЭГ и КГР. На выходе — теплокарты, карта проблемных шагов и рекомендации по интерфейсу.</p>
+    <div class="scenarios">
+      <div class="scenario">
+        <div>
+          <h3>UX-аудит ключевого сценария</h3>
+          <p class="sc-desc">Проводим респондентов по одному контрольному сценарию сайта или приложения с айтрекингом; выявляем зоны слепоты, моменты замешательства и потери внимания.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>197&nbsp;800 – 249&nbsp;960&nbsp;₽</div>
+      </div>
+      <div class="scenario">
+        <div>
+          <h3>Сравнение двух версий (A/B)</h3>
+          <p class="sc-desc">Сравниваем две версии экранов или потока по вниманию (айтрекинг) и вегетативной реакции (КГР); фиксируем, какая версия меньше «теряет» пользователя.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>348&nbsp;680 – 464&nbsp;080&nbsp;₽</div>
+      </div>
+      <div class="scenario">
+        <div>
+          <h3>Когнитивная нагрузка в рабочем сценарии</h3>
+          <p class="sc-desc">Измеряем динамику когнитивной нагрузки и внимания (ЭЭГ + поведение) в типичном рабочем или продуктовом сценарии — без клинических выводов.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>357&nbsp;730 – 464&nbsp;780&nbsp;₽</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="block" id="napr-neuromarketing">
+    <h2>Нейромаркетинг и сенсорный аудит</h2>
+    <p class="pkg-lead">Оцениваем реакцию на ролик, упаковку, полку или этапы воронки до медиазакупки и редизайна: внимание, эмоциональный отклик и запоминаемые фрагменты в лабораторной сессии.</p>
+    <div class="scenarios">
+      <div class="scenario">
+        <div>
+          <h3>Тест рекламного ролика / креатива</h3>
+          <p class="sc-desc">Показываем ролик или набор креативов с синхронной записью ЭЭГ, айтрекинга и КГР; на выходе — зоны внимания и рекомендации до медиазакупки.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>460&nbsp;750 – 633&nbsp;350&nbsp;₽</div>
+      </div>
+      <div class="scenario">
+        <div>
+          <h3>Аудит упаковки / полки</h3>
+          <p class="sc-desc">Тестируем упаковку или виртуальную/физическую полку: куда смотрят, что замечают первым, какая эмоциональная реакция. Теплокарты и приоритеты доработки.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>300&nbsp;620 – 401&nbsp;220&nbsp;₽</div>
+      </div>
+      <div class="scenario">
+        <div>
+          <h3>Клиентский путь (CJM)</h3>
+          <p class="sc-desc">Проводим респондентов по этапам оформления услуги или воронки на сайте с ЭЭГ, айтрекингом и КГР; карта шагов, где падает внимание и срывается действие.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>522&nbsp;650 – 680&nbsp;450&nbsp;₽</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="block" id="napr-rehab">
+    <h2>Валидация методик восстановления и когнитивного тренинга</h2>
+    <p class="pkg-lead">Снимаем измеримые когнитивные и моторные метрики для обучения и R&amp;D: сдвиг «до/после», сравнение протоколов, кинематика. Без обещаний лечения, диагноза и клинической эффективности.</p>
+    <div class="scenarios">
+      <div class="scenario">
+        <div>
+          <h3>Пилот «до/после» когнитивного тренинга</h3>
+          <p class="sc-desc">Батарея когнитивных проб и поведенческих метрик до и после курса корпоративного или прикладного тренинга; отчёт о сдвиге метрик и акт валидации методики.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>414&nbsp;900 – 558&nbsp;900&nbsp;₽</div>
+      </div>
+      <div class="scenario">
+        <div>
+          <h3>Сравнение двух протоколов</h3>
+          <p class="sc-desc">Две группы, одни и те же объективные метрики до/после; сравнение сдвига в прикладной рамке — не клиническое доказательство превосходства.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>584&nbsp;320 – 811&nbsp;420&nbsp;₽</div>
+      </div>
+      <div class="scenario">
+        <div>
+          <h3>Восстановительная методика (кинематика + пробы)</h3>
+          <p class="sc-desc">Оценка методики по кинематике движений и когнитивным/поведенческим пробам. Объективные метрики для R&amp;D или методического паспорта.</p>
+        </div>
+        <div class="price"><small>стоимость работ</small>401&nbsp;300 – 533&nbsp;300&nbsp;₽</div>
+      </div>
+    </div>
+  </article>
+
+  <div class="cta-bar">
+    <strong>Готовы обсудить задачу?</strong>
+    <a class="btn" href="index.html" onclick="sessionStorage.setItem('openZayavka','1')">Заказать услугу</a>
+  </div>
+</div>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-row">
+      <div>
+        <div class="ft-brand">НИИ нейронаук СамГМУ</div>
+        <p class="ft-meta">
+          © 2026 Научно-исследовательский институт нейронаук<br>
+          443079, г.&nbsp;Самара, ул.&nbsp;Гагарина, 18 ·
+          <a href="tel:+78463741004">8 (846) 374-10-04 доб.&nbsp;4548</a> ·
+          <a href="mailto:neuro@samsmu.ru">neuro@samsmu.ru</a>
+        </p>
+      </div>
+      <div class="ft-actions">
+        <a href="#top">↑ Наверх</a>
+        <div class="age" aria-label="12+">12+</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  if (location.hash) {
+    var el = document.querySelector(location.hash);
+    if (el) setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+  }
+})();
+</script>
+</body>
+</html>
